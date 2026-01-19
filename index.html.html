@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MMD Guesthouse</title>
+  <style>
+    /* ====== RESET & BASE ====== */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #fafafa;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* ====== GLOBAL ====== */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .btn {
+      display: inline-block;
+      background: #2f6f5f;
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .btn:hover { background: #24564a; }
+
+    h1, h2, h3 { font-weight: 600; margin-bottom: 15px; }
+    p { margin-bottom: 15px; }
+
+    /* ====== HEADER ====== */
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      z-index: 1000;
+    }
+    header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+    nav li a { font-weight: 500; }
+
+    /* ====== HERO ====== */
+    .hero {
+      height: 100vh;
+      background: #ccc; /* HERO IMAGE PLACEHOLDER */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      margin-top: 70px;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+    .hero h1 { font-size: 3rem; }
+
+    /* ====== INTRO ====== */
+    .intro {
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    /* ====== ROOMS ====== */
+    .rooms {
+      padding: 80px 0;
+      background: #fff;
+    }
+    .room-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .room {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      background: #fafafa;
+    }
+    .room-img {
+      height: 220px;
+      background: #bbb; /* ROOM IMAGE PLACEHOLDER */
+    }
+    .room-content { padding: 20px; }
+
+    /* ====== AMENITIES ====== */
+    .amenities {
+      padding: 80px 0;
+      background: #f2f6f5;
+    }
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+      text-align: center;
+    }
+    .amenity {
+      padding: 30px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    }
+
+    /* ====== GALLERY ====== */
+    .gallery {
+      padding: 80px 0;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+    .gallery-img {
+      height: 200px;
+      background: #ccc; /* GALLERY IMAGE PLACEHOLDER */
+      border-radius: 8px;
+    }
+
+    /* ====== TESTIMONIALS ====== */
+    .testimonials {
+      padding: 80px 0;
+      background: #2f6f5f;
+      color: #fff;
+      text-align: center;
+    }
+    .testimonial {
+      max-width: 700px;
+      margin: auto;
+      font-style: italic;
+    }
+
+    /* ====== CTA ====== */
+    .cta {
+      padding: 80px 0;
+      text-align: center;
+      background: #fff;
+    }
+
+    /* ====== FOOTER ====== */
+    footer {
+      background: #1e1e1e;
+      color: #bbb;
+      padding: 40px 0;
+    }
+    footer .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+    }
+    footer h3 { color: #fff; }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      header .container { flex-direction: column; height: auto; padding: 15px 0; }
+    }
+  </style>
+</head>
+<body bgcolor="beige">
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="container">
+      <h2>MMD Guesthouse</h2>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#rooms">Rooms</a></li>
+          <li><a href="#amenities">Amenities</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <!-- HERO BACKGROUND IMAGE GOES HERE -->
+    <div class="hero-content">
+      <h1>Comfort. Tranquility. Exceptional Hospitality.</h1>
+      <p>Your perfect stay, whether for business or leisure</p>
+      <a href="#contact" class="btn">Book Your Stay</a>
+    </div>
+  </section>
+
+  <!-- ===== INTRO ===== -->
+  <section class="intro container">
+    <h2>Welcome to Our Guesthouse</h2>
+    <p>
+      A warm and inviting guesthouse offering elegant rooms, peaceful surroundings,
+      and personalised service designed to make your stay unforgettable.
+    </p>
+  </section>
+
+  <!-- ===== ROOMS ===== -->
+  <section class="rooms" id="rooms">
+    <div class="container">
+      <h2>Our Rooms</h2>
+      <div class="room-grid">
+        <div class="room">
+          <div class="room-img"><img src="Pic 7.jpeg" width="400" height="220"></div>
+          <div class="room-content">
+            <h3>Standard Rooms</h3>
+            <p>Comfortable and stylish, perfect for short stays.</p>
+          </div>
+        </div>
+        <div class="room">
+          <div class="room-img"><img src="Pic 8.jpeg" width="400" height="220"></div>
+          <div class="room-content">
+            <h3></h3>
+            <p></p>
+          </div>
+        </div>
+        <div class="room">
+          <div class="room-img"><img src="Pic 9.jpeg" width="400" height="220"></div>
+          <div class="room-content">
+            <h3></h3>
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AMENITIES ===== -->
+  <section class="amenities" id="amenities">
+    <div class="container">
+      <h2>Our Amenities</h2>
+      <div class="amenities-grid">
+        <div class="amenity">Free Wi-Fi</div>
+        <div class="amenity">Secure Parking</div>
+        <div class="amenity">Daily Housekeeping</div>
+		<div Class="amenity">Hourly Rates</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <h2>Gallery</h2>
+      <div class="gallery-grid">
+        <div class="gallery-img"> <img src="Pic 2.jpeg" width="300" height="200"></div> 
+        <div class="gallery-img"><img src="Pic 1.jpeg"  width="300" height="200"></div> 
+        <div class="gallery-img"><img src="Pic 3.jpeg"  width="300" height="200"></div>
+        <div class="gallery-img"><img src="Pic 4.jpeg"  width="300" height="200"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials">
+    <div class="container">
+      <h2>What Our Guests Say</h2>
+      <div class="testimonial">
+        "A beautiful guesthouse with outstanding service. Highly recommended!"
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta" id="contact">
+    <div class="container">
+      <h2>Ready to Book?</h2>
+      <p>Contact us today to secure your stay.</p>
+      <a href="mailto:info@yourguesthouse.com" class="btn">Contact Us</a>
+    </div>
+  </section>
+  <!-- ===== GUEST COMMENTS ===== -->
+<section class="comments">
+  <div class="container">
+    <h2>Leave a Comment</h2>
+    <p>We value your feedback. Share your experience with us.</p>
+
+    <form action="mailto:info@yourguesthouse.com" method="post" enctype="text/plain">
+      <div class="comment-form">
+        <input type="text" name="Name" placeholder="Your Name" required>
+        <input type="email" name="Email" placeholder="Your Email" required>
+        <textarea name="Comment" placeholder="Your Comment" rows="5" required></textarea>
+        <button type="submit" class="btn">Submit Comment</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div>
+        <h3>Your Guesthouse</h3>
+        <p>Comfort and hospitality you can trust.</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p>Phone: +2772 883 3616</p>
+        <p>Emai: In progress</p>
+      </div>
+      <div>
+        <h3>Location</h3>
+        <p>Dawn Park 56 Daimler Street</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
